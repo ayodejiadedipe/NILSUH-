@@ -204,13 +204,13 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
-        if (username.getText() != "username"){
+        if (username.getText().compareTo("username") == 0){
             branch br = new branch();
             br.setVisible(true);
             br.pack();
             br.setLocationRelativeTo(null);
             this.dispose();
-        }else{
+        }else {
             errorMsg msg = new errorMsg();
             msg.setVisible(true);
             msg.setLocationRelativeTo(null);
