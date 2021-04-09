@@ -6,7 +6,7 @@ import java.util.Date;
 //instance of variables
 public class Transaction {
 	private String type;
-	private int transNum;
+	private int transNum=0;
 	private Double remain;
 	private LocalDate entryDate;
 	private String dateOpen;
@@ -25,14 +25,17 @@ public class Transaction {
 
 	public Transaction(String type, Double amount, int purpose, Double quanPound, int quanNum, String fr, String t_o, String description) {
 		this.type = type;
-		this.transNum = transNum;
+		this.transNum = transNum + 1;
 		this.purpose = purpose;
 
 		if(purpose == 0 || purpose == 5){
 			this.remain = amount + remain;
 		}
-		else{
+		else if (purpose == 1 || purpose == 4 || purpose == 6 || purpose ==7){
 			this.remain = remain - amount;
+		}
+		else{
+			this.remain = remain
 		}
 
 		this.entryDate = java.time.LocalDate.now();
