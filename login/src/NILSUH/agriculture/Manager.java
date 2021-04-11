@@ -1,12 +1,16 @@
-public class Manager extends Person {
+package agriculture;
+
+import java.sql.Date;
+
+public class Manager extends Employee {
 	private String username;
 	private String password;
 	
 
-	public Manager(String name,Gender gender, String address, String email, String phoneNumber, String loginStatus,String username, String password) 
+	public Manager(String name,Gender gender, String address, String email, String phoneNumber, String loginStatus,String position, Date start, Date end, String username, String password) 
 	{
 	
-	super(name, gender, address, email, phoneNumber, loginStatus);
+	super(name, gender, address, email, phoneNumber, loginStatus,position,start,end);
 		this.username = username;
 		this.password = password;
 	
@@ -15,7 +19,7 @@ public class Manager extends Person {
 	
 	// Returns user name
 	
-	public String getUsename() 
+	public String getUsername() 
 	{
 		return this.username;
 	}
@@ -24,16 +28,6 @@ public class Manager extends Person {
 	{
 		return this.password;
 	}
-	
-	// Setters
-	
-	public void setUsername(String newUsername) 
-	{
-		this.username = newUsername;
-	}
-	
-	public void setPassword(String newPwd) 
-	{
-		this.password = newPwd;
-	}
+		
+
 }

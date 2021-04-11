@@ -1,3 +1,4 @@
+package agriculture;
 import java.util.ArrayList;
 
 
@@ -26,18 +27,6 @@ public class Client extends Person {
 	    public void setIdNumber(int newId){
 	        this.id = newId;
 	    }
-	    
-	 // List of Clients
-		public ArrayList<Client> getClientList(){
-			return cList;
-		}
-		
-		//Add Clients to Client List
-		public void addClient(String name,Gender gender, String address, String email, String phoneNumber, String loginStatus, int id)
-		{
-			Client clientTemp = new Client( name,gender,  address,  email,  phoneNumber,  loginStatus,  id);
-			getClientList().add(clientTemp);
-		}
 	    
 	    public String toString() 
 	    { 

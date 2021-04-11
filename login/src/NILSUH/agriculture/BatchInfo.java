@@ -1,16 +1,32 @@
-package NILSUH.construction;
+package agriculture;
 
 public class BatchInfo {
-
-    protected date entryDate;
+    protected int batch_id;
+    protected String entryDate;
     protected int mortality, remain, amount;
-    protected date slaughterDate;
-    protected Double feedCost, medicineCost;
+    protected String slaughterDate;
+    protected double feedCost, medicineCost;
     
+    public BatchInfo(int mortality, int remain, int amount, String slaughterDate, double feedCost, double medicineCost){
+        this.mortality=mortality;
+        this.remain = remain;
+        this.amount=amount; 
+        this.slaughterDate = slaughterDate;
+        this.feedCost = feedCost;
+        this.medicineCost = medicineCost; 
+    }
 
-    public void updateMortality(int mort){
-        mortality = mort;
-        remain = remain - mort;
+
+    public void setId(int id){
+        this.batch_id= id;
+    }
+    
+    public void setEntryDate(String date){
+        this.entryDate=date;
+    }
+    
+    public int getAmount(){
+        return amount;
     }
 
     public int getMortality(){
@@ -21,25 +37,16 @@ public class BatchInfo {
         return remain;
     }
 
-    public int setAmount(int amount){
-        this.amount = amount;
-    }
-
-    public date getSlaughterDate(){
+    public String getSlaughterDate(){
         return slaughterDate;
     }
 
-    public void updateMedCost(Double cost){
-        medicineCost = medicineCost + cost;
+    public double getFeedCost(){
+        return feedCost;
     }
 
-    public void updateFeedCost(Double cost){
-        feedCost = feedCost + cost;
+    public double getMedicineCost(){
+        return medicineCost;
     }
 
-    
-
-    
-
-    
 }
