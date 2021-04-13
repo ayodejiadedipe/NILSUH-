@@ -79,9 +79,6 @@ CREATE TABLE transactions(
 
 
 CREATE TABLE balance(
-	balance decimal(10,2);
+	balance decimal(10,2)
 );
-
-
-
 
