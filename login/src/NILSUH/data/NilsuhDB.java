@@ -453,11 +453,11 @@ public class NilsuhDB {
             stmt.setDouble(5, trans.getRemain());
             stmt.setString(6, trans.getTransType());
             stmt.setString(7, trans.getPaymentType());
-            stmt.setInt(8, trans.getPurpose());
+            stmt.setString(8, trans.getPurpose());
             stmt.setString(9, trans.getSource());
             stmt.setString(10, trans.getDestination());
             stmt.setString(11, trans.getDescription());
-            stmt.setInt(12, trans.getStatus());
+            stmt.setString(12, trans.getStatus());
             stmt.setDate(13, Date.valueOf(trans.getDateOpen()));
             
             String str;
@@ -559,11 +559,11 @@ public class NilsuhDB {
                 Double amt = rset.getDouble("amount");
                 String trans = rset.getString("trans_type");
                 String pay = rset.getString("payment_type");
-                int purpose = rset.getInt("purpose");
+                String purpose = rset.getString("purpose");
                 String src = rset.getString("source");
                 String dest = rset.getString("destination");
                 String desc = rset.getString("description");
-                int status = rset.getInt("status");
+                String status = rset.getString("status");
                 String odate = rset.getDate("dateopen").toString();
                 String cdate = rset.getDate("dateclose").toString();
 
