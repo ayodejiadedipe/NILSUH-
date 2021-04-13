@@ -2,11 +2,13 @@ package agriculture;
 import java.sql.Date;
 
 public class Employee extends Person {
-    Payroll payroll = new Payroll();
+    Payroll payroll ;
     private int id;
     private String position;
     private String start;
     private String end;
+    private String username;
+    private String password;
 
     public Employee (String name,Gender gender, String address, String email, String phoneNumber, String loginStatus, String position, String start, String end){
         
@@ -37,11 +39,15 @@ public class Employee extends Person {
     }
 
     public Double getPay(){
-        return payroll.getPay(); //payroll;
+        return payroll.calcPay(); 
     }
 
     public String toString(){
         return null; //payroll.toString();
+    }
+
+    public void setHrs(double hrs){
+        this.payroll.sethrs(hrs);
     }
 	
 	
@@ -54,5 +60,15 @@ public class Employee extends Person {
 	public void setPassword(String newPwd) 
 	{
 		this.password = newPwd;
+	}
+
+    public String getUsername() 
+	{
+		return this.username;
+	}
+	
+	public String getPassword() 
+	{
+		return this.password;
 	}
 }
