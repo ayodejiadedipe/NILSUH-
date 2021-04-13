@@ -1,7 +1,6 @@
 package data;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import agriculture.*;
 
@@ -14,7 +13,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("insert into client(c_fname,c_lname,gender,address,email,telephone) values (?, ?, ?, ?, ?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
          
@@ -50,7 +49,7 @@ public class NilsuhDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             Statement stmt = conn.createStatement();
 
@@ -83,7 +82,7 @@ public class NilsuhDB {
     public void deleteClient(String id) throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("DELETE FROM client WHERE client_id = ?");
             stmt.setString(1,id);
@@ -105,7 +104,7 @@ public class NilsuhDB {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+        Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
         PreparedStatement stmt = conn.prepareStatement("UPDATE client SET " +token+ " = ? WHERE client_id = ?");
         //stmt.setString(1,token);
@@ -123,7 +122,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
             PreparedStatement stmt = conn.prepareStatement("insert into employee(e_fname,e_lname,gender,address,email,telephone,login_status, position,start_date,end_date) values (?, ?, ?, ?, ?,?,?,?,?,?);", PreparedStatement.RETURN_GENERATED_KEYS);
 
             String[] name= emp.getName().split(" ");
@@ -145,7 +144,8 @@ public class NilsuhDB {
             else{
                 str = emp.getEnddate();
             }
-            stmt.setDate(10, Date.valueOf(emp.getEnddate()));
+
+            stmt.setDate(10, Date.valueOf(str));
             stmt.executeUpdate();
 
             ResultSet rset = stmt.getGeneratedKeys();
@@ -170,7 +170,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
 
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM employee WHERE e_fname= ? or e_lname= ? or emp_id= ?");
@@ -211,7 +211,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("DELETE FROM employee WHERE emp_id = ?");
             stmt.setString(1,id);
@@ -229,7 +229,7 @@ public class NilsuhDB {
     public void updateEmployee(String id,String token, String update){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("UPDATE employee SET "+token+ "= ? WHERE emp_id = ?");
             stmt.setString(1, update);
@@ -245,10 +245,10 @@ public class NilsuhDB {
         } 
     }
 
-    public void addLogin(Manager manager){
+    public void addLogin(Employee manager){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("insert into manager values (?, ?, ?)");
          
@@ -272,7 +272,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("DELETE FROM manager WHERE emp_id = ?");
             stmt.setString(1,id);
@@ -290,7 +290,7 @@ public class NilsuhDB {
     public void updateLogin(String id,String token, String update){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("UPDATE login SET "+token+ "= ? WHERE emp_id = ?");
             stmt.setString(1, update);
@@ -305,13 +305,42 @@ public class NilsuhDB {
             e.printStackTrace();
         } 
     }
+
+    public boolean srchLogin(String username, String password){
+        boolean a=false;
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
+
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM login WHERE username = ? AND password=?");
+
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rset = stmt.executeQuery();
+
+            if(rset.next()==false){
+                a = false ;
+            }
+            else{
+                a = true;
+            }
+        }
+        catch(SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } 
+
+        return a;
+    }
     
 
     //BATCH
     public void addBatch(BatchInfo batch){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("insert into batch(entryDate, amount,mortality,remain,slaughter_date,feedCost,medicineCost) values (?, ?, ?, ?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
 
@@ -345,7 +374,7 @@ public class NilsuhDB {
     public void updateBatch(String id,String token, String update){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("UPDATE batch SET "+token+ "= ? WHERE batch_id = ?");
             stmt.setString(1, update);
@@ -366,7 +395,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
 
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM batch WHERE entry_date ? BETWEEN ? AND ?");
@@ -385,8 +414,9 @@ public class NilsuhDB {
                 Double fcost = rset.getDouble("feedCost");
                 Double mcost = rset.getDouble("medicineCost");
                 
-                BatchInfo batch = new BatchInfo(mort, remain, amt, sdate, fcost, mcost)
+                BatchInfo batch = new BatchInfo(mort, remain, amt, sdate, fcost, mcost);
                 batch.setEntryDate(entrydate.toString());
+                batch.setId(batchId);
                 batchlist.add(batch);
             }
         }
@@ -396,6 +426,7 @@ public class NilsuhDB {
         catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return batchlist;
     }
 
 
@@ -403,9 +434,9 @@ public class NilsuhDB {
     public void addTransaction(Transaction trans ){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
-            PreparedStatement stmt = conn.prepareStatement("insert into transactions(entry_date,quantity,qty_lb,amount,balance,trans_type,payment_type,purpose,source,destination,description,status,dateopen,dateclose) values (?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?);", PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = conn.prepareStatement("insert into transactions(entry_date,quantity,qty_lb,amount,balance,trans_type,payment_type,purpose,source,destination,description,status,dateopen,dateclose) values (?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
 
             long curr = System.currentTimeMillis();
             Date sqlDate = new Date(curr);
@@ -455,7 +486,7 @@ public class NilsuhDB {
     public void updateTransaction(String id,String token, String update){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
             PreparedStatement stmt = conn.prepareStatement("UPDATE transactions SET "+token+ "= ? WHERE trans_Num = ?");
             stmt.setString(1, update);
@@ -476,7 +507,7 @@ public class NilsuhDB {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/NILSUH","root", "");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
 
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM transactions WHERE entry_date ? BETWEEN ? AND ?");
@@ -518,20 +549,13 @@ public class NilsuhDB {
 
     }
 
-
-    public 
+ 
 
 
     public static void main(String[] args) throws SQLException{
         NilsuhDB db = new NilsuhDB();
-        Date date = Date.valueOf("2020-03-28");
-        Manager m = new Manager("Lisa Jane", Gender.FEMALE, "12 roots lane", "lj@jmail.com", "876525632", "", "", date, null, "lj234", "@lhgkdkyk");
-        
-        Transaction t = new Transaction("Withdrawal", "Card", 34565, 4567, 1, 58, 849, "Nilsuh", "Mark Jacobs", "hjdjk", 1, "2020-04-05", " ");
-        //ArrayList<Employee> elist = new ArrayList<Employee>();
-
-        
-        db.updateTransaction("1", "dateclose", "2020-03-23");
+                
+        System.out.print(db.srchLogin("hello", "good"));
         
 
         /*elist= db.srchEmployee("Lisa");
