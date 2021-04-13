@@ -191,9 +191,11 @@ public class NilsuhDB {
                 String position = rset.getString("position");
                 String sdate = (rset.getDate("start_date")).toString();
                 String edate = (rset.getDate("end_date")).toString();
+                double hrs = rset.getDouble("hrs");
 
                 Employee emp = new Employee(fname+" "+lname, gender, address, email, telephone,login_stat, position, sdate, edate);
                 emp.setIdNumber(emp_id);
+                emp.setHrs(hrs);
                 emplist.add(emp);
             }
         }
