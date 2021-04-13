@@ -2,6 +2,8 @@ package data;
 import java.sql.*;
 import java.util.ArrayList;
 
+import com.mysql.cj.xdevapi.Result;
+
 import agriculture.*;
 
 
@@ -459,7 +461,7 @@ public class NilsuhDB {
             stmt.setDate(13, Date.valueOf(trans.getDateOpen()));
             
             String str;
-            if ((trans.getDateClose()==" ") || (trans.getDateClose()==null)){
+            if ((trans.getDateClose()==" ") || (trans.getDateClose()==null) || (trans.getDateClose()=="")){
                 str = "2000-01-01";
             }
             else{
@@ -476,6 +478,13 @@ public class NilsuhDB {
             while(rset.next()){
                 trans.setTransNum(rset.getInt(1));
             }
+
+            double balance = getBalance();
+            balance = balance + trans.getAmount();
+            stmt = conn.prepareStatement("UPDATE balance set balance = ?");
+            stmt.setDouble(1, balance);
+            stmt.executeUpdate();
+            
         }
         catch(SQLException ex) {
             ex.printStackTrace();
@@ -483,6 +492,29 @@ public class NilsuhDB {
         catch (ClassNotFoundException e) {
             e.printStackTrace();
         } 
+    }
+
+    public double getBalance(){
+        double balance = 0;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
+
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM balance");
+            ResultSet rset = stmt.executeQuery();
+
+            while (rset.next()){
+                balance = rset.getDouble("balance");
+            }
+        }
+        catch(SQLException ex) {
+            ex.printStackTrace();
+        } 
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } 
+        
+        return balance;
     }
 
     public void updateTransaction(String id,String token, String update){
@@ -556,16 +588,8 @@ public class NilsuhDB {
 
     public static void main(String[] args) throws SQLException{
         NilsuhDB db = new NilsuhDB();
+        Transaction t = new Transaction("withdrawal", "card", 10000, 493.4, 1, 34, 23.5, "nilsuh", "hgir", "whatebr", 1, "2020-02-23", " ");
                 
-        System.out.print(db.srchLogin("hello", "good"));
-        
-
-        /*elist= db.srchEmployee("Lisa");
-        for(int i=0; i<elist.size(); i++){
-            System.out.println(elist.get(i).getName());
-        }*/
-        
-        //db.updateEmployee("2", "gender", "FEMALE");
-        //db.deleteEmployee("2");
+        db.addTransaction(t);
     }
 }
