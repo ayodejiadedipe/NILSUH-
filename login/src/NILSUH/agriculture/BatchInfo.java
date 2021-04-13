@@ -16,35 +16,65 @@ public class BatchInfo {
         this.medicineCost = medicineCost; 
     }
 
-
+    /**
+     * @param id the ID# that batch shall be assigned 
+     */
     public void setId(int id){
         this.batch_id= id;
     }
     
+    /**
+     * 
+     * @param date the date that the log was done
+     */
     public void setEntryDate(String date){
         this.entryDate=date;
     }
     
+    /**
+     * 
+     * @return the amount that this batch has cost
+     */
     public int getAmount(){
         return amount;
     }
 
+    /**
+     * 
+     * @return the mortality of this batch 
+     */
     public int getMortality(){
         return mortality;
     }
 
+    /**
+     * 
+     * @return balance left in the account 
+     */
     public int getRemain(){
         return remain;
     }
 
+    /**
+     * 
+     * @return the expected slaughter date of the specific batch
+     */
     public String getSlaughterDate(){
         return slaughterDate;
     }
 
+    /**
+     * 
+     * @return the total cost that the batch has accumulated for feed
+     */
     public double getFeedCost(){
         return feedCost;
     }
 
+    /**
+     * 
+     * @return the total cost that the batch has accumulated for medicine 
+     */
     public double getMedicineCost(){
         return medicineCost;
     }

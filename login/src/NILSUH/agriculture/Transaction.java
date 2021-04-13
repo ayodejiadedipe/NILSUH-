@@ -42,48 +42,62 @@ public class Transaction {
 
 
 
-	// getters and setters
+	/**
+	 * 
+	 * @return string of the type of transaction done 
+	 */
 	public String getTransType() {
 		return transtype;
 	}
 
+	/**
+	 * 
+	 * @return string of the payment type used for transaction 
+	 */
 	public String getPaymentType() {
 		return paytype;
 	}
 
+	/**
+	 * @return double value of the amount used in transaction 
+	 */
 	public double getAmount() {
 		return amount;
 	}
 
 
 	/**
-	 * int return the transfer number
+	 *@return int of the transaction number that was assigned 
 	 */
 	public int getTransNum() {
 		return transNum;
 	}
 
 	/**
-	 * transNum the transNum to set
+	 *@param int tNum that is to be assigned to the transaction 
 	 */
-	public void setTransNum(int transNum) {
-		this.transNum = transNum;
+	public void setTransNum(int tNum) {
+		this.transNum = tNum;
 	}
 
 	/**
-	 * Date return the date
+	 * @return string of the entry date of the log 
 	 */
 	public String getEntryDate() {
 		return entryDate;
 	}
 	
+	/**
+	 * 
+	 * @param entryDate sets the entry date of the log
+	 */
 	public void setEntryDate(String entryDate) {
 		this.entryDate=entryDate;
 	}
 
 
 	/**
-	 * double return the remain
+	 *@return double of the balance left in the account 
 	 */
 	public double getRemain() {
 		return remain;
@@ -91,14 +105,14 @@ public class Transaction {
 
 
 	/**
-	 * String return the purpose
+	 *@return int of the purpose of the transaction 
 	 */
 	public int getPurpose() {
 		return purpose;
 	}
 
 	/**
-	 * int return the quantity Numbers
+	 * 
 	 */
 	public int getQuanNum() {
 		return quanNum;
@@ -152,7 +166,7 @@ public class Transaction {
 
 
 	/**
-	 * Date return the dateClose
+	 * @return string fo the  the date close
 	 */
 	public String getDateClose() {
 		return dateClose;

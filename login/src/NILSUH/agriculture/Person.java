@@ -20,36 +20,55 @@ public class Person {
 		
 	}
 	
-	// Returns Person name
+	/**
+     * 
+     * @return the string name of the person 
+     */
     public String getName(){
         return this.name;
     }
 
-     // Returns  Person Gender
+     /**
+      * @return the gender of the person
+      */
     public Gender getGender(){
         return this.gender;
     }
 
-    // Returns  Person Address
+    /**
+     * 
+     * @return the string address of the person
+     */
     public String getAddress(){
         return this.address;
     }
 
-    //Returns  Person email address
+    /**
+     * 
+     * @return the string email address of the person 
+     */
     public String getEmail(){
         return this.email;
     }
     
-    // Returns  Person Phone Number
+    /**
+     * @return the string phoneNumber 
+     */
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
 
-    
+    /**
+     * 
+     * @return the login status of the person
+     */
     public String getLoginStatus() {
     	return this.loginStatus;
     }
 	
+    /** 
+     * @return the string of the person information 
+     */
     public String toString() {
     	return "Name: "+this.name+"\n"+"Gender: "+this.gender+"\n"+"Address: "+this.address+"\n"+"Email: "+this.email+"\n"+"Phone Number: "+this.phoneNumber+"\n"+"Status:"+this.loginStatus;
     }

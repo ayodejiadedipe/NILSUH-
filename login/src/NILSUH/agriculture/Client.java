@@ -15,19 +15,26 @@ public class Client extends Person {
 	        	
 	        
 	    }
-	    
-	    // Getters
 
-	    // Returns a unique Client id number
+	    /**
+		 * 
+		 * @return the ID that was assigned to the client 
+		 */
 	    public int getId(){
 	        return this.id;
 	    }
 
-	 // Edit Client id number
+	 	/**
+		  * 
+		  * @param newId sets the ID of the client 
+		  */
 	    public void setIdNumber(int newId){
 	        this.id = newId;
 	    }
 	    
+		/**
+		 * @return the client information as a single string 
+		 */
 	    public String toString() 
 	    { 
 	        return (super.toString()+ 
