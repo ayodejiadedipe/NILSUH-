@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mysql.cj.xdevapi.Result;
 
-import agriculture.*;
+import NILSUH.agriculture.*;
 
 
 public class NilsuhDB {   
