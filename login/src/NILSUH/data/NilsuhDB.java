@@ -1,4 +1,4 @@
-package data;
+package NILSUH.data;
 import java.sql.*;
 import java.util.ArrayList;
 
