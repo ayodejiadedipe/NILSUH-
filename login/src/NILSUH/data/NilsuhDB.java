@@ -140,7 +140,7 @@ public class NilsuhDB {
             stmt.setDate(9, Date.valueOf(emp.getStartdate()));
 
             String str;
-            if ((emp.getEnddate()==" ") || (emp.getEnddate()==null)){
+            if ((emp.getEnddate()==" ") || (emp.getEnddate()==null) || (emp.getEnddate()==null)){
                 str = "2000-01-01";
             }
             else{
