@@ -9,21 +9,21 @@ public class Transaction {
 	private String entryDate;
 	private double amount;
 	private double remain;
-	private int purpose;
+	private String purpose;
 	private int quanNum;
 	private double quanPound;
 	private String source;
 	private String destination;
 	private String Description;
-	private int status;
+	private String status;
 	private String dateOpen;
 	private String dateClose;
 
 	// the Transaction constructor
 
 	public Transaction(String transtype, String paytype, double amount, double remain,
-			int purpose, int quanNum, double quanPound, String source, String destination, String Description,
-			int status, String dateOpen, String dateClose) {
+			String purpose, int quanNum, double quanPound, String source, String destination, String Description,
+			String status, String dateOpen, String dateClose) {
 		
 		this.transtype = transtype;
 		this.paytype = paytype;
@@ -107,7 +107,7 @@ public class Transaction {
 	/**
 	 *@return int of the purpose of the transaction 
 	 */
-	public int getPurpose() {
+	public String getPurpose() {
 		return purpose;
 	}
 
@@ -153,7 +153,7 @@ public class Transaction {
 	/**
 	 * boolean return the status
 	 */
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
