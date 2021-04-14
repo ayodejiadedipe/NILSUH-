@@ -187,12 +187,12 @@ public class Transaction {
 	public String toString() {
 		String result = "";
 		NumberFormat fmt = NumberFormat.getCurrencyInstance();
-		result = "'" + ", type='" + getTransType() + "'"+ getPaymentType() + "'" + ", transNum='" + getTransNum() + "'"
-				+ ", date='" + getEntryDate() + "'" + ", amount='" + fmt.format(getAmount()) + "'" + ", remain='"
-				+ fmt.format(getRemain()) + "'" + ", purpose='" + getPurpose() + "'" + ", quanNum='" + getQuanNum()
-				+ "'" + ", quanPound='" + getQuanPound() + "'" + ", source='" + getSource() + "'" + ", destination='"
-				+ getDestination() + "'" + ", Description='" + getDescription() + "'" + ", status='" + getStatus() + "'"
-				+ ", dateOpen='" + getDateOpen() + "'" + ", dateClose='" + getDateClose() + "'";
+		result = "Type: " + "\n" + getTransType() + "\n" + "Payment Type: " + getPaymentType() + "\n" + "Transaction ID#: '" + getTransNum() + "\n"
+				+ "Date: '" + getEntryDate() + "\n" + "Amount: '" + fmt.format(getAmount()) + "\n" + "Remain: '"
+				+ fmt.format(getRemain()) + "\n" + "Purpose: '" + getPurpose() + "\n" + "Quantity Number: '" + getQuanNum()
+				+ "\n" + "Quantity Pound: '" + getQuanPound() + "\n" + "Source: '" + getSource() + "\n" + "Destination: '"
+				+ getDestination() + "\n" + "Description: '" + getDescription() + "\n" + "Status: '" + getStatus() + "\n"
+				+ "Date Open: " + getDateOpen() + "\n" + "Date Close: " + getDateClose() + "\n\n";
 		return result;
 	}
 
