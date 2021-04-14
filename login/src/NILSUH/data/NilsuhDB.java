@@ -402,7 +402,7 @@ public class NilsuhDB {
             Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
 
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM batch WHERE entry_date ? BETWEEN ? AND ?");
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM batch WHERE entryDate BETWEEN ? AND ?");
             stmt.setString(1, token1);
             stmt.setString(2, token2);
 
@@ -410,7 +410,7 @@ public class NilsuhDB {
 
             while(rset.next()) {
                 int batchId = rset.getInt("batch_id");
-                String entrydate = (rset.getDate("entry_date")).toString();
+                String entrydate = (rset.getDate("entryDate")).toString();
                 int amt = rset.getInt("amount");
                 int mort = rset.getInt("mortality");
                 int remain = rset.getInt("mortality");
@@ -544,7 +544,7 @@ public class NilsuhDB {
             Connection conn= DriverManager.getConnection("jdbc:mysql://192.168.100.4:3306/NILSUH","nilsuh", "hXmhxnfu5vaHqv8f");
 
 
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM transactions WHERE entry_date ? BETWEEN ? AND ?");
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM transactions WHERE entry_date BETWEEN ? AND ?");
             stmt.setString(1, token1);
             stmt.setString(2, token2);
 
