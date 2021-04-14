@@ -2,7 +2,6 @@ package agriculture;
 import java.sql.Date;
 
 public class Employee extends Person {
-    Payroll payroll ;
     private int id;
     private String position;
     private String start;
