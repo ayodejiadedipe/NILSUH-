@@ -1,5 +1,14 @@
 package agriculture;
 
+/**
+ * @author Orley Huslin 
+ * @author Itawnya Walker
+ * @author Ayodeji Adedipe
+ * @author Saphrah-Ann Wint
+ * @author Denzil Plummer 
+ * 
+ */
+
 public class BatchInfo {
     protected int batch_id;
     protected String entryDate;
@@ -22,6 +31,13 @@ public class BatchInfo {
     public void setId(int id){
         this.batch_id= id;
     }
+
+    /**
+     * @return the ID that was assigned to be batch 
+     */
+    public int getId(){
+        return batch_id;
+    }
     
     /**
      * 
@@ -29,6 +45,13 @@ public class BatchInfo {
      */
     public void setEntryDate(String date){
         this.entryDate=date;
+    }
+
+    /**
+     * @return the string containing the entry date of the batch 
+     */
+    public String getEntryDate(){
+        return entryDate;
     }
     
     /**
@@ -45,14 +68,6 @@ public class BatchInfo {
      */
     public int getMortality(){
         return mortality;
-    }
-
-    /**
-     * 
-     * @return balance left in the account 
-     */
-    public int getRemain(){
-        return remain;
     }
 
     /**
@@ -77,6 +92,14 @@ public class BatchInfo {
      */
     public double getMedicineCost(){
         return medicineCost;
+    }
+
+    public String toString(){
+        String s;
+        s = "Batch ID#: " + getId() + "\n" + "Entry Date: " + getEntryDate() + "\n" + "Mortality: " + 
+            getMortality() + "\n" + "Feed Cost: " + getFeedCost() + "\n" + "Medicine Cost: " + getMedicineCost()
+            + "\n";
+        return s;
     }
 
 }
