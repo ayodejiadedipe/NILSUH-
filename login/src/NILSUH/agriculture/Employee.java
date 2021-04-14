@@ -59,14 +59,6 @@ public class Employee extends Person {
     }
 
     /**
-     * 
-     * @return the pay that the employee should receive 
-     */
-    public Double getPay(){
-        return payroll.calcPay(); 
-    }
-
-    /**
      * @return single string of the employee information 
      */
     public String toString(){
@@ -78,7 +70,7 @@ public class Employee extends Person {
      * @param hrs the hours that was worked for a specific time period  and to be added to the total hours
      */
     public void setHrs(double hrs){
-        this.payroll.sethrs(hrs);
+        hours += hrs;
     }
 	
 	
